@@ -6,6 +6,7 @@ const searchSong = () => {
     .then((res) => res.json())
     .then((data) => displaySongs(data.data));
 };
+// search Song
 
 const displaySongs = (songs) => {
   const songContainer = document.getElementById("music-list");
@@ -25,10 +26,15 @@ const displaySongs = (songs) => {
 
         </div>
         <div class="col-md-3 text-md-right text-center">
-            <button class="btn btn-success">Get Lyrics</button>
+            <button onclick="getLyrics('${element.artist.name}','${element.title}')" class="btn btn-success">Get Lyrics</button>
         </div>
       `;
 
     songContainer.appendChild(songDiv);
   });
+};
+// display Songs
+
+const getLyrics = (artist, title) => {
+  console.log(artist, title);
 };
